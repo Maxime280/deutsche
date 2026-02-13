@@ -52,9 +52,9 @@ input.code-input{text-align:center;letter-spacing:.3em;font-size:1.3rem;text-tra
 .smsg{font-style:italic;color:var(--gold);flex:1;text-align:center;font-size:.82rem}
 .dcount{font-size:.7rem;color:var(--muted)}
 #sGame{flex-direction:column}
-.board{display:grid;grid-template-rows:auto 1fr auto;height:100vh;padding:3.2rem .6rem .6rem;gap:.4rem;max-width:860px;margin:0 auto;width:100%}
-.opp-area,.my-area{display:flex;flex-direction:column;align-items:center;gap:.4rem}
-.cards-row{display:flex;gap:.45rem;justify-content:center;flex-wrap:wrap}
+.board{display:flex;flex-direction:column;justify-content:space-between;height:100vh;padding:3.5rem .8rem .8rem;gap:.6rem;max-width:860px;margin:0 auto;width:100%}
+.opp-area,.my-area{display:flex;flex-direction:column;align-items:center;gap:.5rem;min-height:130px;justify-content:center}
+.cards-row{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;min-height:104px;align-items:center}
 .name-tag{font-size:.68rem;color:var(--muted);letter-spacing:.1em;background:var(--surface);border:1px solid var(--border);padding:.18rem .7rem;border-radius:20px;transition:all .3s}
 .name-tag.active{border-color:var(--gold);color:var(--gold)}.name-tag.mine{border-color:var(--green);color:var(--green-l)}
 .center-area{display:flex;align-items:center;justify-content:center;gap:2rem}
