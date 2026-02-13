@@ -413,39 +413,81 @@ function onUpdate(room){
 }
 
 function renderBoard(room){
-  const me=G.myId,op=opp(me),myHand=room.hands[me]||[],oppHand=room.hands[op]||[];
+  if(!room||!room.hands){return;}
+  const me=G.myId,op=opp(me);
+  const myHand=room.hands[me]||[];
+  const oppHand=room.hands[op]||[];
   const isMy=room.currentTurn===me,phase=room.phase;
   const myN=room.players[me]?.name||"Vous",opN=room.players[op]?.name||"Adversaire";
-  document.getElementById("myTag").textContent=myN;document.getElementById("oppTag").textContent=opN;
+
+  document.getElementById("myTag").textContent=myN;
+  document.getElementById("oppTag").textContent=opN;
   document.getElementById("myTag").className="name-tag"+(isMy?" active mine":"");
   document.getElementById("oppTag").className="name-tag"+(!isMy?" active":"");
+
   const tt=document.getElementById("turnTag"),sm=document.getElementById("statusMsg");
-  if(phase==="memorize"){tt.className="turn-tag mine";tt.textContent="👁 Mémorisation";sm.textContent=`Mémorisez ${room.peeksLeft[me]} carte${room.peeksLeft[me]>1?"s":""}`;}
-  else{tt.className="turn-tag "+(isMy?"mine":"theirs");tt.textContent=isMy?"▶ Votre tour":`⏳ Tour de ${opN}`;sm.textContent=phase==="last_round"?`⚠ Dernier tour !`:isMy?"Piochez une carte":`${opN} joue…`;}
+  if(phase==="memorize"){
+    tt.className="turn-tag mine";tt.textContent="👁 Mémorisation";
+    const pl=room.peeksLeft?room.peeksLeft[me]:0;
+    sm.textContent=pl>0?`Cliquez sur ${pl} carte${pl>1?"s":""} pour les mémoriser`:"En attente de l'autre joueur…";
+  } else {
+    tt.className="turn-tag "+(isMy?"mine":"theirs");
+    tt.textContent=isMy?"▶ Votre tour":`⏳ Tour de ${opN}`;
+    sm.textContent=phase==="last_round"?`⚠ Dernier tour !`:isMy?"Piochez une carte":`${opN} joue…`;
+  }
+
   document.getElementById("deckCount").textContent=`🂠 ${room.deck.length}`;
-  const dp=document.getElementById("deckPile");dp.innerHTML=`<span class="pile-count">${room.deck.length}</span>`;
-  if(room.deck.length>0){dp.insertBefore(mkCard(null,true),dp.firstChild);dp.className="pile-slot"+(isMy&&!G.drawn&&phase!=="memorize"?" click":"");}
-  else{dp.insertAdjacentHTML("afterbegin","<div class='pile-empty'>Vide</div>");dp.className="pile-slot";}
+
+  // Pioche
+  const dp=document.getElementById("deckPile");
+  dp.innerHTML=`<span class="pile-count">${room.deck.length}</span>`;
+  if(room.deck.length>0){
+    dp.insertBefore(mkCard(null,true),dp.firstChild);
+    dp.className="pile-slot"+(isMy&&!G.drawn&&phase!=="memorize"?" click":"");
+  } else {
+    dp.insertAdjacentHTML("afterbegin","<div class='pile-empty'>Vide</div>");
+    dp.className="pile-slot";
+  }
+
+  // Défausse
   const dsp=document.getElementById("discardPile");dsp.innerHTML="";
-  const top=room.discard.length>0?room.discard[room.discard.length-1]:null;
-  if(top){dsp.appendChild(mkCard(top,false));dsp.className="pile-slot"+(isMy&&!G.drawn&&phase!=="memorize"?" click":"");}
-  else{dsp.innerHTML="<div class='pile-empty'>Vide</div>";dsp.className="pile-slot";}
-  const oc=document.getElementById("oppCards");oc.innerHTML="";oppHand.forEach(()=>oc.appendChild(mkCard(null,true)));
+  const top=room.discard&&room.discard.length>0?room.discard[room.discard.length-1]:null;
+  if(top){
+    dsp.appendChild(mkCard(top,false));
+    dsp.className="pile-slot"+(isMy&&!G.drawn&&phase!=="memorize"?" click":"");
+  } else {
+    dsp.innerHTML="<div class='pile-empty'>Vide</div>";
+    dsp.className="pile-slot";
+  }
+
+  // Cartes adversaire (toujours face cachée)
+  const oc=document.getElementById("oppCards");oc.innerHTML="";
+  for(let i=0;i<oppHand.length;i++) oc.appendChild(mkCard(null,true));
+
+  // Mes cartes (toujours face cachée, cliquables en phase mémo)
   const mc=document.getElementById("myCards");mc.innerHTML="";
+  const peeksLeft=room.peeksLeft?room.peeksLeft[me]:0;
   for(let i=0;i<myHand.length;i++){
-    const c=myHand[i];
-    const el=mkCard(c,true);
-    const lbl=document.createElement("span");lbl.className="clabel";lbl.textContent=i+1;el.appendChild(lbl);
-    if(phase==="memorize"&&room.peeksLeft[me]>0){
+    const el=mkCard(myHand[i],true);
+    const lbl=document.createElement("span");lbl.className="clabel";lbl.textContent=i+1;
+    el.appendChild(lbl);
+    if(phase==="memorize"&&peeksLeft>0){
       el.classList.add("click");
-      el.dataset.idx=i;
-      el.addEventListener("click",function(){doPeek(parseInt(this.dataset.idx));});
+      el.dataset.cardidx=String(i);
+      el.addEventListener("click",function(e){
+        e.stopPropagation();
+        doPeek(parseInt(this.dataset.cardidx));
+      });
     }
     mc.appendChild(el);
   }
+
+  // Boutons d'action
   const ab=document.getElementById("actionBar");ab.innerHTML="";
   if((phase==="playing"||phase==="last_round")&&isMy&&!G.drawn){
-    const db=document.createElement("button");db.className="dbtn";db.textContent="DEUTSCHE !";db.onclick=callDeutsche;ab.appendChild(db);
+    const db=document.createElement("button");
+    db.className="dbtn";db.textContent="DEUTSCHE !";db.onclick=callDeutsche;
+    ab.appendChild(db);
   }
 }
 
