@@ -219,13 +219,13 @@ input.code-input{text-align:center;letter-spacing:.3em;font-size:1.3rem;text-tra
 <div class="ov" id="ovSwap"><div class="ovbox">
   <h3>Choisissez la carte à remplacer</h3><p>La carte choisie sera défaussée.</p>
   <div class="ovcards" id="swapCards"></div>
-  <button class="abtn" onclick="closeOv('ovSwap');showOv('ovDrawn')">← Retour</button>
+  <button class="abtn" onclick="closeOv('ovSwap');showDrawnOv(G.drawn)">← Retour</button>
 </div></div>
 
 <div class="ov" id="ovDouble"><div class="ovbox">
   <h3>Double défausse !</h3><p>Choisissez la carte de même valeur.</p>
   <div class="ovcards" id="doubleCards"></div>
-  <button class="abtn" onclick="closeOv('ovDouble');showOv('ovDrawn')">← Retour</button>
+  <button class="abtn" onclick="closeOv('ovDouble');showDrawnOv(G.drawn)">← Retour</button>
 </div></div>
 
 <div class="ov" id="ovJack"><div class="ovbox">
@@ -521,7 +521,7 @@ async function drawDeck(){
   if(r.currentTurn!==G.myId){toast("Ce n'est pas votre tour");return;}
   if(r.phase!=="playing"&&r.phase!=="last_round")return;
   if(r.deck.length===0){if(r.discard.length<=1){toast("Plus de cartes !");return;}const top=r.discard.pop();r.deck=shuffle(r.discard);r.discard=[top];toast("Pioche reconstituée !");}
-  const card=r.deck.shift();await saveRoom(r);G.drawn=card;G.drawnFromDisc=false;showDrawnOv(r,card);
+  const card=r.deck.shift();await saveRoom(r);G.drawn=card;G.drawnFromDisc=false;showDrawnOv(card);
 }
 
 async function drawDiscard(){
@@ -529,43 +529,90 @@ async function drawDiscard(){
   if(r.currentTurn!==G.myId){toast("Ce n'est pas votre tour");return;}
   if(r.phase!=="playing"&&r.phase!=="last_round")return;
   if(r.discard.length===0){toast("Défausse vide");return;}
-  const card=r.discard[r.discard.length-1];G.drawn=card;G.drawnFromDisc=true;showDrawnOv(r,card);
+  const card=r.discard[r.discard.length-1];G.drawn=card;G.drawnFromDisc=true;showDrawnOv(card);
 }
 
-function showDrawnOv(r,card){
+function showDrawnOv(card){
   document.getElementById("drawnTitle").textContent=G.drawnFromDisc?"Carte de la défausse":"Carte piochée";
   const dc=document.getElementById("drawnCard");dc.innerHTML="";dc.appendChild(mkCard(card,false));
-  const canDouble=r.hands[G.myId].some(c=>c.v===card.v);
+  const myHand=G.room?G.room.hands[G.myId]:[];
+  const canDouble=myHand.some(c=>c.v===card.v);
   const da=document.getElementById("drawnActions");da.innerHTML="";
-  if(!G.drawnFromDisc){const b=document.createElement("button");b.className="abtn";b.textContent="Défausser cette carte";b.onclick=()=>doDiscardDrawn(card);da.appendChild(b);}
-  const b2=document.createElement("button");b2.className="abtn";b2.textContent="Échanger avec ma main";b2.onclick=()=>{closeOv("ovDrawn");showSwapOv(r,card);};da.appendChild(b2);
-  if(canDouble){const b3=document.createElement("button");b3.className="abtn ok";b3.textContent="Double défausse (même valeur)";b3.onclick=()=>{closeOv("ovDrawn");showDoubleOv(r,card);};da.appendChild(b3);}
-  if(G.drawnFromDisc){const bc=document.createElement("button");bc.className="abtn danger";bc.textContent="Annuler";bc.onclick=()=>{G.drawn=null;closeOv("ovDrawn");};da.appendChild(bc);}
+  if(!G.drawnFromDisc){
+    const b=document.createElement("button");b.className="abtn";b.textContent="Défausser cette carte";
+    b.onclick=()=>doDiscardDrawn(card);da.appendChild(b);
+  }
+  const b2=document.createElement("button");b2.className="abtn";b2.textContent="Échanger avec ma main";
+  b2.onclick=()=>{closeOv("ovDrawn");showSwapOv(card);};da.appendChild(b2);
+  if(canDouble){
+    const b3=document.createElement("button");b3.className="abtn ok";b3.textContent="Double défausse (même valeur)";
+    b3.onclick=()=>{closeOv("ovDrawn");showDoubleOv(card);};da.appendChild(b3);
+  }
+  if(G.drawnFromDisc){
+    const bc=document.createElement("button");bc.className="abtn danger";bc.textContent="Annuler";
+    bc.onclick=()=>{G.drawn=null;closeOv("ovDrawn");};da.appendChild(bc);
+  }
   showOv("ovDrawn");
 }
 
-async function doDiscardDrawn(card){closeOv("ovDrawn");const r=await loadRoom();if(!r)return;r.discard.push(card);G.drawn=null;await handleSpecial(r,card);}
+async function doDiscardDrawn(card){
+  closeOv("ovDrawn");
+  const r=await loadRoom();if(!r)return;
+  r.discard.push(card);G.drawn=null;
+  await handleSpecial(r,card);
+}
 
-function showSwapOv(r,card){
+function showSwapOv(card){
+  const myHand=G.room?G.room.hands[G.myId]:[];
   const sc=document.getElementById("swapCards");sc.innerHTML="";
-  r.hands[G.myId].forEach((c,i)=>{const el=mkCard(c,true);el.classList.add("click");const lbl=document.createElement("span");lbl.className="clabel";lbl.textContent=i+1;el.appendChild(lbl);el.onclick=()=>doSwap(i,card,r);sc.appendChild(el);});
+  for(let i=0;i<myHand.length;i++){
+    const el=mkCard(myHand[i],true);el.classList.add("click");
+    const lbl=document.createElement("span");lbl.className="clabel";lbl.textContent=i+1;el.appendChild(lbl);
+    el.dataset.swapidx=String(i);
+    el.addEventListener("click",function(){doSwap(parseInt(this.dataset.swapidx),card);});
+    sc.appendChild(el);
+  }
   showOv("ovSwap");
 }
 
-async function doSwap(idx,drawnCard,r){
-  closeOv("ovSwap");const rr=await loadRoom();if(!rr)return;
-  if(G.drawnFromDisc)rr.discard.pop();const old=rr.hands[G.myId][idx];rr.discard.push(old);rr.hands[G.myId][idx]=drawnCard;G.drawn=null;await handleSpecial(rr,old);
+async function doSwap(idx,drawnCard){
+  closeOv("ovSwap");
+  const rr=await loadRoom();if(!rr)return;
+  if(G.drawnFromDisc)rr.discard.pop();
+  const old=rr.hands[G.myId][idx];
+  rr.discard.push(old);
+  rr.hands[G.myId][idx]=drawnCard;
+  G.drawn=null;
+  await handleSpecial(rr,old);
 }
 
-function showDoubleOv(r,card){
+function showDoubleOv(card){
+  const myHand=G.room?G.room.hands[G.myId]:[];
   const dc=document.getElementById("doubleCards");dc.innerHTML="";
-  r.hands[G.myId].forEach((c,i)=>{const el=mkCard(c,true);const lbl=document.createElement("span");lbl.className="clabel";lbl.textContent=i+1;el.appendChild(lbl);if(c.v===card.v){el.classList.add("click","hi");el.onclick=()=>doDouble(i,card,r);}else el.classList.add("dim");dc.appendChild(el);});
+  for(let i=0;i<myHand.length;i++){
+    const el=mkCard(myHand[i],true);
+    const lbl=document.createElement("span");lbl.className="clabel";lbl.textContent=i+1;el.appendChild(lbl);
+    if(myHand[i].v===card.v){
+      el.classList.add("click","hi");
+      el.dataset.dblidx=String(i);
+      el.addEventListener("click",function(){doDouble(parseInt(this.dataset.dblidx),card);});
+    } else {
+      el.classList.add("dim");
+    }
+    dc.appendChild(el);
+  }
   showOv("ovDouble");
 }
 
-async function doDouble(idx,drawnCard,r){
-  closeOv("ovDouble");const rr=await loadRoom();if(!rr)return;
-  if(G.drawnFromDisc)rr.discard.pop();rr.discard.push(drawnCard);rr.discard.push(rr.hands[G.myId][idx]);rr.hands[G.myId].splice(idx,1);G.drawn=null;await endTurn(rr);
+async function doDouble(idx,drawnCard){
+  closeOv("ovDouble");
+  const rr=await loadRoom();if(!rr)return;
+  if(G.drawnFromDisc)rr.discard.pop();
+  rr.discard.push(drawnCard);
+  rr.discard.push(rr.hands[G.myId][idx]);
+  rr.hands[G.myId].splice(idx,1);
+  G.drawn=null;
+  await endTurn(rr);
 }
 
 async function handleSpecial(r,card){
