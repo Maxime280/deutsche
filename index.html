@@ -432,11 +432,17 @@ function renderBoard(room){
   else{dsp.innerHTML="<div class='pile-empty'>Vide</div>";dsp.className="pile-slot";}
   const oc=document.getElementById("oppCards");oc.innerHTML="";oppHand.forEach(()=>oc.appendChild(mkCard(null,true)));
   const mc=document.getElementById("myCards");mc.innerHTML="";
-  myHand.forEach((c,i)=>{
-    const el=mkCard(c,true);const lbl=document.createElement("span");lbl.className="clabel";lbl.textContent=i+1;el.appendChild(lbl);
-    if(phase==="memorize"&&room.peeksLeft[me]>0){el.classList.add("click");el.onclick=()=>doPeek(i,room);}
+  for(let i=0;i<myHand.length;i++){
+    const c=myHand[i];
+    const el=mkCard(c,true);
+    const lbl=document.createElement("span");lbl.className="clabel";lbl.textContent=i+1;el.appendChild(lbl);
+    if(phase==="memorize"&&room.peeksLeft[me]>0){
+      el.classList.add("click");
+      el.dataset.idx=i;
+      el.addEventListener("click",function(){doPeek(parseInt(this.dataset.idx));});
+    }
     mc.appendChild(el);
-  });
+  }
   const ab=document.getElementById("actionBar");ab.innerHTML="";
   if((phase==="playing"||phase==="last_round")&&isMy&&!G.drawn){
     const db=document.createElement("button");db.className="dbtn";db.textContent="DEUTSCHE !";db.onclick=callDeutsche;ab.appendChild(db);
@@ -450,8 +456,11 @@ function mkCard(c,faceDown,mini=false){
   return d;
 }
 
-function doPeek(idx,room){
-  const card=room.hands[G.myId][idx],after=room.peeksLeft[G.myId]-1;
+function doPeek(idx){
+  const room=G.room;if(!room)return;
+  const me=G.myId;
+  const card=room.hands[me][idx];
+  const after=room.peeksLeft[me]-1;
   document.getElementById("peekTitle").textContent=`Carte ${idx+1}`;
   document.getElementById("peekDesc").textContent=after>0?`Il vous reste ${after} regard${after>1?"s":""}. Mémorisez !`:"Dernière carte — mémorisez bien !";
   const pc=document.getElementById("peekCard");pc.innerHTML="";pc.appendChild(mkCard(card,false));
