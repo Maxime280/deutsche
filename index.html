@@ -295,6 +295,7 @@ async function loadRoom() {
 async function saveRoom(room) {
   if (!G.roomCode) return;
   G.room = room;
+  G.lastHash = JSON.stringify(room);
   await fbSet(`rooms/${G.roomCode}`, room);
 }
 
@@ -678,11 +679,21 @@ async function callDeutsche(){
 }
 
 async function endTurn(r){
-  G.drawn=null;closeAllOv();if(checkEnd(r))return;
+  G.drawn=null;
+  closeAllOv();
+  if(checkEnd(r)) return;
   const op=opp(G.myId);
-  if(r.phase==="last_round"){if(r.currentTurn===r.deutscheCaller)r.currentTurn=op;else{r.phase="ended";await saveRoom(r);showEnd(r);return;}}
-  else r.currentTurn=r.currentTurn==="p0"?"p1":"p0";
-  await saveRoom(r);
+  if(r.phase==="last_round"){
+    if(r.currentTurn===r.deutscheCaller) r.currentTurn=op;
+    else { r.phase="ended"; await fbSet(`rooms/${G.roomCode}`,r); G.room=r; G.lastHash=JSON.stringify(r); showEnd(r); return; }
+  } else {
+    r.currentTurn = r.currentTurn==="p0" ? "p1" : "p0";
+  }
+  G.room=r;
+  G.lastHash=JSON.stringify(r);
+  const ok = await fbSet(`rooms/${G.roomCode}`,r);
+  if(!ok) toast("Erreur réseau !");
+  else renderBoard(r);
 }
 
 function checkEnd(r){
