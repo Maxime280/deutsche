@@ -383,9 +383,26 @@ function updateWaiting(room){
 }
 
 async function startGame(){
-  const r=await loadRoom();if(!r||!r.players.p1)return;
-  const deck=[...r.deck];r.hands.p0=deck.splice(0,4);r.hands.p1=deck.splice(0,4);r.deck=deck;
-  r.phase="memorize";r.peeksLeft={p0:2,p1:2};await saveRoom(r);
+  const btn=document.querySelector("#startArea button");
+  if(btn){btn.disabled=true;btn.textContent="Lancement…";}
+  let r=G.room;
+  if(!r){r=await loadRoom();}
+  if(!r||!r.players.p1){
+    if(btn){btn.disabled=false;btn.textContent="Commencer la partie ▶";}
+    toast("Erreur — réessayez");return;
+  }
+  const fullDeck=makeDeck();
+  r.hands={p0:fullDeck.splice(0,4),p1:fullDeck.splice(0,4)};
+  r.deck=fullDeck;
+  r.phase="memorize";
+  r.peeksLeft={p0:2,p1:2};
+  const ok=await fbSet(`rooms/${G.roomCode}`,r);
+  if(!ok){
+    if(btn){btn.disabled=false;btn.textContent="Commencer la partie ▶";}
+    toast("Erreur réseau — réessayez");
+  } else {
+    G.room=r;
+  }
 }
 
 function onUpdate(room){
