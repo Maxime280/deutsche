@@ -15,56 +15,55 @@
 body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',serif;min-height:100vh;
   background-image:radial-gradient(ellipse at 15% 15%,rgba(201,168,76,.06) 0%,transparent 55%),
   radial-gradient(ellipse at 85% 85%,rgba(192,57,43,.04) 0%,transparent 55%);}
-.screen{display:none;min-height:100vh}
-.screen.active{display:flex}
+.screen{display:none;min-height:100vh}.screen.active{display:flex}
 #sLobby{flex-direction:column;align-items:center;justify-content:center;padding:2rem;gap:1.8rem}
 .logo{text-align:center}
 .suits{font-size:1.8rem;color:var(--gold);letter-spacing:.4em;margin-bottom:.3rem}
-h1{font-family:Georgia,serif;font-size:clamp(2.8rem,9vw,5.5rem);font-weight:900;letter-spacing:.18em;color:var(--gold);line-height:1}
+h1{font-size:clamp(2.8rem,9vw,5.5rem);font-weight:900;letter-spacing:.18em;color:var(--gold);line-height:1}
 .tagline{color:var(--muted);font-style:italic;font-size:1rem;letter-spacing:.1em;margin-top:.3rem}
 .box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;width:100%;max-width:400px;box-shadow:0 24px 64px rgba(0,0,0,.6)}
-.box h2{font-family:Georgia,serif;color:var(--gold);letter-spacing:.1em;margin-bottom:1rem;text-align:center;font-size:1.2rem}
+.box h2{color:var(--gold);letter-spacing:.1em;margin-bottom:1rem;text-align:center;font-size:1.2rem}
 .tabs{display:flex;border-radius:8px;overflow:hidden;border:1px solid var(--border);margin-bottom:1.4rem}
-.tab{flex:1;padding:.55rem;background:var(--surface2);border:none;color:var(--muted);cursor:pointer;font-family:Georgia,serif;font-size:.78rem;letter-spacing:.07em;transition:all .2s}
+.tab{flex:1;padding:.55rem;background:var(--surface2);border:none;color:var(--muted);cursor:pointer;font-size:.78rem;letter-spacing:.07em;transition:all .2s}
 .tab.on{background:var(--gold-d);color:var(--gold-l)}
 label{display:block;font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:.35rem}
-input[type=text]{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem 1rem;color:var(--text);font-family:Georgia,serif;font-size:1rem;outline:none;transition:border-color .2s;margin-bottom:.9rem}
+input[type=text]{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem 1rem;color:var(--text);font-size:1rem;outline:none;transition:border-color .2s;margin-bottom:.9rem;font-family:inherit}
 input[type=text]:focus{border-color:var(--gold)}
 input.code-input{text-align:center;letter-spacing:.3em;font-size:1.3rem;text-transform:uppercase}
-.btn{width:100%;padding:.8rem;border:none;border-radius:8px;font-family:Georgia,serif;font-size:.88rem;letter-spacing:.1em;cursor:pointer;font-weight:700;transition:all .2s}
+.btn{width:100%;padding:.8rem;border:none;border-radius:8px;font-size:.88rem;letter-spacing:.1em;cursor:pointer;font-weight:700;transition:all .2s;font-family:inherit}
 .btn-gold{background:linear-gradient(135deg,var(--gold-d),var(--gold));color:#1a0e00}
 .btn-gold:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(201,168,76,.3)}
 .btn-out{background:transparent;border:1px solid var(--border);color:var(--muted);margin-top:.5rem}
 .btn-out:hover{border-color:var(--gold);color:var(--gold)}
 .btn-sm{width:auto;padding:.4rem 1rem;font-size:.75rem;margin-bottom:.5rem}
-.err{color:#e74c3c;font-size:.85rem;font-style:italic;margin-bottom:.8rem;text-align:center;min-height:1.2em}
+.err{color:#e74c3c;font-size:.85rem;font-style:italic;margin-bottom:.5rem;text-align:center;min-height:1.4em}
 .info-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;font-size:.85rem;color:var(--muted);text-align:center;line-height:1.7;max-width:400px;width:100%}
-.info-box strong{color:var(--gold);font-family:Georgia,serif;font-size:.78rem;letter-spacing:.05em}
+.info-box strong{color:var(--gold)}
 #sWait{flex-direction:column;align-items:center;justify-content:center;padding:2rem}
-.room-code{font-family:Georgia,serif;font-size:2.4rem;color:var(--gold);letter-spacing:.4em;text-align:center;margin:.6rem 0}
+.room-code{font-size:2.4rem;color:var(--gold);letter-spacing:.4em;text-align:center;margin:.6rem 0}
 .players{display:flex;flex-direction:column;gap:.5rem;margin:1.2rem 0}
 .pslot{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem 1rem;display:flex;align-items:center;gap:.7rem;font-size:.95rem}
 .pslot.on{border-color:var(--green)}.pslot.off{opacity:.5;font-style:italic;color:var(--muted)}
 .dot{width:9px;height:9px;border-radius:50%;background:var(--green);animation:pulse 1.5s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
 .sbar{position:fixed;top:0;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);padding:.4rem 1rem;display:flex;align-items:center;justify-content:space-between;font-size:.8rem;z-index:50}
-.turn-tag{font-family:Georgia,serif;font-size:.7rem;letter-spacing:.07em}
+.turn-tag{font-size:.7rem;letter-spacing:.07em}
 .turn-tag.mine{color:var(--green-l)}.turn-tag.theirs{color:var(--muted)}
 .smsg{font-style:italic;color:var(--gold);flex:1;text-align:center;font-size:.82rem}
-.dcount{font-family:Georgia,serif;font-size:.7rem;color:var(--muted);letter-spacing:.05em}
+.dcount{font-size:.7rem;color:var(--muted)}
 #sGame{flex-direction:column}
 .board{display:grid;grid-template-rows:auto 1fr auto;height:100vh;padding:3.2rem .6rem .6rem;gap:.4rem;max-width:860px;margin:0 auto;width:100%}
 .opp-area,.my-area{display:flex;flex-direction:column;align-items:center;gap:.4rem}
 .cards-row{display:flex;gap:.45rem;justify-content:center;flex-wrap:wrap}
-.name-tag{font-family:Georgia,serif;font-size:.68rem;color:var(--muted);letter-spacing:.1em;background:var(--surface);border:1px solid var(--border);padding:.18rem .7rem;border-radius:20px;transition:all .3s}
+.name-tag{font-size:.68rem;color:var(--muted);letter-spacing:.1em;background:var(--surface);border:1px solid var(--border);padding:.18rem .7rem;border-radius:20px;transition:all .3s}
 .name-tag.active{border-color:var(--gold);color:var(--gold)}.name-tag.mine{border-color:var(--green);color:var(--green-l)}
 .center-area{display:flex;align-items:center;justify-content:center;gap:2rem}
 .pile-zone{display:flex;flex-direction:column;align-items:center;gap:.35rem}
-.pile-label{font-family:Georgia,serif;font-size:.6rem;letter-spacing:.12em;color:var(--muted)}
+.pile-label{font-size:.6rem;letter-spacing:.12em;color:var(--muted)}
 .pile-slot{width:72px;height:104px;border-radius:8px;border:2px dashed var(--border);display:flex;align-items:center;justify-content:center;position:relative;transition:all .2s}
 .pile-slot.click{cursor:pointer}.pile-slot.click:hover{border-color:var(--gold);transform:scale(1.05);box-shadow:0 4px 16px rgba(201,168,76,.25)}
 .pile-empty{font-size:.62rem;color:var(--muted);font-style:italic;text-align:center;padding:4px}
-.pile-count{position:absolute;top:-7px;right:-7px;background:var(--gold);color:#1a0e00;font-family:Georgia,serif;font-size:.6rem;font-weight:700;padding:2px 5px;border-radius:10px}
+.pile-count{position:absolute;top:-7px;right:-7px;background:var(--gold);color:#1a0e00;font-size:.6rem;font-weight:700;padding:2px 5px;border-radius:10px}
 .card{width:72px;height:104px;border-radius:9px;border:2px solid var(--card-border);background:var(--card-bg);display:flex;align-items:center;justify-content:center;position:relative;transition:all .2s;user-select:none;flex-shrink:0;box-shadow:2px 3px 10px rgba(0,0,0,.5)}
 .card.click{cursor:pointer}.card.click:hover{transform:translateY(-5px);box-shadow:2px 8px 20px rgba(0,0,0,.6)}
 .card.sel{transform:translateY(-10px);border-color:var(--gold);box-shadow:0 10px 28px rgba(201,168,76,.45)}
@@ -76,33 +75,32 @@ input.code-input{text-align:center;letter-spacing:.3em;font-size:1.3rem;text-tra
 .card-face.r{color:#c0392b}.card-face.b{color:#1a1a2e}
 .cn{display:flex;flex-direction:column;align-items:center;line-height:1}
 .cn.top{align-self:flex-start}.cn.bot{align-self:flex-end;transform:rotate(180deg)}
-.cv{font-family:Georgia,serif;font-size:.88rem;font-weight:700;line-height:1}
+.cv{font-size:.88rem;font-weight:700;line-height:1}
 .cs{font-size:.65rem;line-height:1}.cc{flex:1;display:flex;align-items:center;justify-content:center;font-size:1.6rem}
 .card.mini .cv{font-size:.65rem}.card.mini .cs{font-size:.5rem}.card.mini .cc{font-size:1.1rem}
-.clabel{position:absolute;bottom:3px;left:0;right:0;text-align:center;font-size:.5rem;color:rgba(100,120,180,.7);font-family:Georgia,serif}
+.clabel{position:absolute;bottom:3px;left:0;right:0;text-align:center;font-size:.5rem;color:rgba(100,120,180,.7)}
 .abar{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:.4rem}
-.abtn{padding:.45rem 1.1rem;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--text);font-family:Georgia,serif;font-size:.68rem;letter-spacing:.07em;cursor:pointer;transition:all .2s}
+.abtn{padding:.45rem 1.1rem;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--text);font-size:.68rem;letter-spacing:.07em;cursor:pointer;transition:all .2s;font-family:inherit}
 .abtn:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.08)}
 .abtn.ok{border-color:var(--green);color:var(--green-l)}.abtn.danger{border-color:var(--red);color:var(--red)}
-.dbtn{padding:.55rem 1.4rem;border-radius:24px;border:none;background:linear-gradient(135deg,#7a0000,#c0392b);color:#ffeaea;font-family:Georgia,serif;font-size:.85rem;font-weight:700;letter-spacing:.12em;cursor:pointer;animation:gred 2s infinite;transition:all .2s}
+.dbtn{padding:.55rem 1.4rem;border-radius:24px;border:none;background:linear-gradient(135deg,#7a0000,#c0392b);color:#ffeaea;font-size:.85rem;font-weight:700;letter-spacing:.12em;cursor:pointer;animation:gred 2s infinite;font-family:inherit}
 @keyframes gred{0%,100%{box-shadow:0 0 10px rgba(192,57,43,.5)}50%{box-shadow:0 0 22px rgba(192,57,43,.9)}}
 .ov{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:100;backdrop-filter:blur(4px)}
 .ov.show{display:flex}
 .ovbox{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.8rem;max-width:380px;width:92%;text-align:center;box-shadow:0 24px 64px rgba(0,0,0,.7)}
-.ovbox h3{font-family:Georgia,serif;color:var(--gold);font-size:1rem;letter-spacing:.1em;margin-bottom:.5rem}
+.ovbox h3{color:var(--gold);font-size:1rem;letter-spacing:.1em;margin-bottom:.5rem}
 .ovbox p{color:var(--muted);font-size:.88rem;font-style:italic;margin-bottom:.9rem}
 .ovcards{display:flex;justify-content:center;margin:1rem 0;gap:.4rem;flex-wrap:wrap}
 .ovbtns{display:flex;flex-direction:column;gap:.5rem;margin-top:.5rem}
 .ovrow{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0;align-items:flex-start}
 .ovrow-col{display:flex;flex-direction:column;align-items:center;gap:.3rem}
-.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--gold);border-radius:20px;padding:.55rem 1.4rem;font-family:Georgia,serif;font-size:.75rem;color:var(--gold);letter-spacing:.07em;z-index:200;white-space:nowrap;pointer-events:none;box-shadow:0 4px 20px rgba(0,0,0,.5);opacity:0;transition:opacity .3s}
+.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--gold);border-radius:20px;padding:.55rem 1.4rem;font-size:.75rem;color:var(--gold);letter-spacing:.07em;z-index:200;white-space:nowrap;pointer-events:none;box-shadow:0 4px 20px rgba(0,0,0,.5);opacity:0;transition:opacity .3s}
 .toast.show{opacity:1}
 #sEnd{flex-direction:column;align-items:center;justify-content:center;padding:2rem}
 .score-row{display:flex;justify-content:space-between;align-items:center;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.75rem 1.1rem;font-size:1rem;margin-bottom:.3rem}
-.pts{font-family:Georgia,serif;font-size:1.3rem;color:var(--gold)}
-.wtag{font-family:Georgia,serif;font-size:.62rem;background:var(--green);color:#002200;padding:2px 7px;border-radius:10px;margin-left:.5rem}
+.pts{font-size:1.3rem;color:var(--gold);font-weight:700}
+.wtag{font-size:.62rem;background:var(--green);color:#002200;padding:2px 7px;border-radius:10px;margin-left:.5rem}
 .hand-rev{display:flex;gap:.35rem;justify-content:center;flex-wrap:wrap;margin:.6rem 0}
-.loading{color:var(--gold);font-style:italic;font-size:.9rem;text-align:center;padding:1rem}
 @media(max-width:480px){
   .card{width:58px;height:85px}.card.mini{width:42px;height:60px}
   .pile-slot{width:58px;height:85px}.center-area{gap:1.2rem}
@@ -140,8 +138,8 @@ input.code-input{text-align:center;letter-spacing:.3em;font-size:1.3rem;text-tra
   </div>
   <div class="info-box">
     <strong>Comment jouer à distance ?</strong><br><br>
-    Une personne crée la partie et partage le <strong>code à 4 lettres</strong>.<br>
-    L'autre le saisit pour rejoindre. Synchronisation automatique !
+    Créez une partie → partagez le <strong>code à 4 lettres</strong>.<br>
+    Votre amie le saisit pour rejoindre. C'est tout !
   </div>
 </div>
 
@@ -149,7 +147,7 @@ input.code-input{text-align:center;letter-spacing:.3em;font-size:1.3rem;text-tra
 <div class="screen" id="sWait">
   <div class="box">
     <h2>Salle d'attente</h2>
-    <p style="color:var(--muted);font-style:italic;font-size:.88rem;text-align:center;margin-bottom:.5rem">Partagez ce code à 4 lettres :</p>
+    <p style="color:var(--muted);font-style:italic;font-size:.88rem;text-align:center;margin-bottom:.5rem">Partagez ce code à votre amie :</p>
     <div class="room-code" id="dispCode">—</div>
     <div style="text-align:center;margin-bottom:.8rem">
       <button class="btn btn-gold btn-sm" onclick="copyCode()">📋 Copier le code</button>
@@ -206,686 +204,324 @@ input.code-input{text-align:center;letter-spacing:.3em;font-size:1.3rem;text-tra
 </div>
 
 <!-- OVERLAYS -->
-<div class="ov" id="ovPeek">
-  <div class="ovbox">
-    <h3 id="peekTitle">Votre carte</h3>
-    <p id="peekDesc">Mémorisez-la !</p>
-    <div class="ovcards" id="peekCard"></div>
-    <button class="btn btn-gold" onclick="closePeek()">Mémorisé ✓</button>
+<div class="ov" id="ovPeek"><div class="ovbox">
+  <h3 id="peekTitle">Votre carte</h3><p id="peekDesc">Mémorisez-la !</p>
+  <div class="ovcards" id="peekCard"></div>
+  <button class="btn btn-gold" onclick="closePeek()">Mémorisé ✓</button>
+</div></div>
+
+<div class="ov" id="ovDrawn"><div class="ovbox">
+  <h3 id="drawnTitle">Carte piochée</h3>
+  <div class="ovcards" id="drawnCard"></div>
+  <div class="ovbtns" id="drawnActions"></div>
+</div></div>
+
+<div class="ov" id="ovSwap"><div class="ovbox">
+  <h3>Choisissez la carte à remplacer</h3><p>La carte choisie sera défaussée.</p>
+  <div class="ovcards" id="swapCards"></div>
+  <button class="abtn" onclick="closeOv('ovSwap');showOv('ovDrawn')">← Retour</button>
+</div></div>
+
+<div class="ov" id="ovDouble"><div class="ovbox">
+  <h3>Double défausse !</h3><p>Choisissez la carte de même valeur.</p>
+  <div class="ovcards" id="doubleCards"></div>
+  <button class="abtn" onclick="closeOv('ovDouble');showOv('ovDrawn')">← Retour</button>
+</div></div>
+
+<div class="ov" id="ovJack"><div class="ovbox">
+  <h3>Valet ♞ — Regardez une carte</h3><p>Choisissez une de vos cartes.</p>
+  <div class="ovcards" id="jackCards"></div>
+</div></div>
+
+<div class="ov" id="ovJackReveal"><div class="ovbox">
+  <h3>Votre carte</h3><p>Mémorisez-la !</p>
+  <div class="ovcards" id="jackRevealCard"></div>
+  <button class="btn btn-gold" onclick="closeJackReveal()">Mémorisé ✓</button>
+</div></div>
+
+<div class="ov" id="ovQueen"><div class="ovbox">
+  <h3>Dame ♛ — Échange secret</h3><p>Choisissez votre carte et une carte adverse.</p>
+  <div class="ovrow">
+    <div class="ovrow-col"><div class="pile-label">VOTRE CARTE</div><div class="ovcards" id="queenMy"></div></div>
+    <div class="ovrow-col"><div class="pile-label" id="queenOppLbl">ADVERSAIRE</div><div class="ovcards" id="queenOpp"></div></div>
   </div>
-</div>
-<div class="ov" id="ovDrawn">
-  <div class="ovbox">
-    <h3 id="drawnTitle">Carte piochée</h3>
-    <div class="ovcards" id="drawnCard"></div>
-    <div class="ovbtns" id="drawnActions"></div>
-  </div>
-</div>
-<div class="ov" id="ovSwap">
-  <div class="ovbox">
-    <h3>Choisissez la carte à remplacer</h3>
-    <p>La carte choisie sera défaussée.</p>
-    <div class="ovcards" id="swapCards"></div>
-    <button class="abtn" onclick="closeOv('ovSwap');showOv('ovDrawn')">← Retour</button>
-  </div>
-</div>
-<div class="ov" id="ovDouble">
-  <div class="ovbox">
-    <h3>Double défausse !</h3>
-    <p>Choisissez la carte de même valeur dans votre main.</p>
-    <div class="ovcards" id="doubleCards"></div>
-    <button class="abtn" onclick="closeOv('ovDouble');showOv('ovDrawn')">← Retour</button>
-  </div>
-</div>
-<div class="ov" id="ovJack">
-  <div class="ovbox">
-    <h3>Valet ♞ — Regardez une carte</h3>
-    <p>Choisissez une de vos cartes à regarder.</p>
-    <div class="ovcards" id="jackCards"></div>
-  </div>
-</div>
-<div class="ov" id="ovJackReveal">
-  <div class="ovbox">
-    <h3>Votre carte</h3>
-    <p>Mémorisez-la !</p>
-    <div class="ovcards" id="jackRevealCard"></div>
-    <button class="btn btn-gold" onclick="closeJackReveal()">Mémorisé ✓</button>
-  </div>
-</div>
-<div class="ov" id="ovQueen">
-  <div class="ovbox">
-    <h3>Dame ♛ — Échange secret</h3>
-    <p>Choisissez votre carte et une carte adverse.</p>
-    <div class="ovrow">
-      <div class="ovrow-col">
-        <div class="pile-label">VOTRE CARTE</div>
-        <div class="ovcards" id="queenMy"></div>
-      </div>
-      <div class="ovrow-col">
-        <div class="pile-label" id="queenOppLbl">ADVERSAIRE</div>
-        <div class="ovcards" id="queenOpp"></div>
-      </div>
-    </div>
-    <p id="queenHint" style="color:var(--gold);font-size:.82rem;min-height:1.2em"></p>
-  </div>
-</div>
-<div class="ov" id="ovReactive">
-  <div class="ovbox">
-    <h3 id="reactTitle">Défausse réactive !</h3>
-    <p id="reactDesc">Vous pouvez défausser une carte de même valeur.</p>
-    <div class="ovcards" id="reactCards"></div>
-    <button class="abtn danger" onclick="closeOv('ovReactive')">Ignorer</button>
-  </div>
-</div>
+  <p id="queenHint" style="color:var(--gold);font-size:.82rem;min-height:1.2em"></p>
+</div></div>
+
+<div class="ov" id="ovReactive"><div class="ovbox">
+  <h3 id="reactTitle">Défausse réactive !</h3><p id="reactDesc">Vous pouvez défausser une carte de même valeur.</p>
+  <div class="ovcards" id="reactCards"></div>
+  <button class="abtn danger" onclick="closeOv('ovReactive')">Ignorer</button>
+</div></div>
 
 <div class="toast" id="toast"></div>
 
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-
 <script>
-// ═══════════════════════════════════════════════════
-// FIREBASE CONFIG — base de données temps réel gratuite
-// ═══════════════════════════════════════════════════
-const firebaseConfig = {
-  apiKey: "AIzaSyDemo-RemplacezParVotreClé",
-  authDomain: "deutsche-jeu.firebaseapp.com",
-  databaseURL: "https://deutsche-jeu-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "deutsche-jeu",
-  storageBucket: "deutsche-jeu.appspot.com",
-  messagingSenderId: "123456789",
-  appId: "1:123456789:web:abcdef"
-};
+// ═══════════════════════════════════════════════
+// BACKEND: Firebase Realtime Database (REST API)
+// Base de données publique gratuite — fonctionne
+// depuis n'importe quel navigateur sans CORS issue
+// ═══════════════════════════════════════════════
+// IMPORTANT: Remplacez DB_URL par votre propre URL Firebase
+// Instruction: firebase.google.com → créer projet gratuit →
+// Realtime Database → créer DB → copier l'URL ici
+// Règles à mettre: { "rules": { ".read": true, ".write": true } }
+const DB_URL = "https://deutsche-280-default-rtdb.europe-west1.firebasedatabase.app";
 
-// ═══════════════════════════════════════════════════
-// ALTERNATIVE SANS FIREBASE : stockage via API publique
-// On utilise https://api.restdb.io ou directement
-// une solution peer-to-peer via PeerJS
-// ═══════════════════════════════════════════════════
-
-// Solution choisie : JSONStorage via https://api.npoint.io
-// npoint.io permet de créer des JSON bins gratuitement via API
-
-const NPOINT = "https://api.npoint.io";
-
-// Index global : roomCode -> binId
-// Stocké dans un bin fixe (créé une fois)
-let INDEX_BIN_ID = null;
-const INDEX_KEY = "deutsche_npoint_index";
-
-async function getIndex() {
-  const local = localStorage.getItem(INDEX_KEY);
-  if (local) {
-    try { return JSON.parse(local); } catch {}
-  }
-  return {};
-}
-
-async function saveIndex(idx) {
-  localStorage.setItem(INDEX_KEY, JSON.stringify(idx));
-}
-
-async function createBin(data) {
+async function fbGet(path) {
   try {
-    const r = await fetch(`${NPOINT}/bins`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
-    if (!r.ok) throw new Error("npoint create failed");
-    const j = await r.json();
-    return j.id || null;
-  } catch(e) {
-    console.error("createBin error:", e);
-    return null;
-  }
-}
-
-async function readBin(id) {
-  try {
-    const r = await fetch(`${NPOINT}/${id}`);
+    const r = await fetch(`${DB_URL}/${path}.json`);
     if (!r.ok) return null;
     return await r.json();
-  } catch { return null; }
+  } catch(e) { return null; }
 }
 
-async function writeBin(id, data) {
+async function fbSet(path, data) {
   try {
-    const r = await fetch(`${NPOINT}/${id}`, {
+    const r = await fetch(`${DB_URL}/${path}.json`, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
+      headers: {"Content-Type":"application/json"},
       body: JSON.stringify(data)
     });
     return r.ok;
-  } catch { return false; }
+  } catch(e) { return false; }
 }
 
-// ═══════════════════════════════════════════════════
-// LOGIQUE DU JEU
-// ═══════════════════════════════════════════════════
-const SUITS = ["♥","♦","♠","♣"];
-const VALS  = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
-
-function pts(c) {
-  if(!c) return 0;
-  if(c.v==="A") return 1;
-  if(c.v==="J") return 11;
-  if(c.v==="Q") return 12;
-  if(c.v==="K") return (c.s==="♥"||c.s==="♦") ? 0 : 13;
-  return parseInt(c.v);
+async function loadRoom() {
+  if (!G.roomCode) return null;
+  return await fbGet(`rooms/${G.roomCode}`);
 }
-function isRed(c){ return c&&(c.s==="♥"||c.s==="♦"); }
-function makeDeck(){
-  const d=[];
-  for(const s of SUITS) for(const v of VALS) d.push({s,v,id:v+s});
-  return shuffle(d);
-}
-function shuffle(a){
-  const b=[...a];
-  for(let i=b.length-1;i>0;i--){
-    const j=Math.floor(Math.random()*(i+1));
-    [b[i],b[j]]=[b[j],b[i]];
-  }
-  return b;
-}
-function genCode(){
-  const c="ABCDEFGHJKLMNPQRSTUVWXYZ";
-  return Array.from({length:4},()=>c[Math.floor(Math.random()*c.length)]).join("");
-}
-function opp(id){ return id==="p0"?"p1":"p0"; }
 
-// ═══════════════════════════════════════════════════
-// STATE
-// ═══════════════════════════════════════════════════
-let G = {
-  myId:null, myName:"", roomCode:null, binId:null, room:null,
-  drawn:null, drawnFromDisc:false,
-  pollTimer:null, lastHash:"", lastDiscTop:null,
-  queenMyIdx:null, queenOppIdx:null, jackCb:null,
-  peekIdx:null, peekAfter:null
-};
+async function saveRoom(room) {
+  if (!G.roomCode) return;
+  G.room = room;
+  await fbSet(`rooms/${G.roomCode}`, room);
+}
 
-// ═══════════════════════════════════════════════════
-// LOAD / SAVE ROOM
-// ═══════════════════════════════════════════════════
-async function loadRoom(){ return G.binId ? await readBin(G.binId) : null; }
-async function saveRoom(room){ if(G.binId){ G.room=room; await writeBin(G.binId,room); } }
+// ═══════════════════════════════════════════════
+// JEU
+// ═══════════════════════════════════════════════
+const SUITS=["♥","♦","♠","♣"],VALS=["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
+function pts(c){if(!c)return 0;if(c.v==="A")return 1;if(c.v==="J")return 11;if(c.v==="Q")return 12;if(c.v==="K")return(c.s==="♥"||c.s==="♦")?0:13;return parseInt(c.v);}
+function isRed(c){return c&&(c.s==="♥"||c.s==="♦")}
+function makeDeck(){const d=[];for(const s of SUITS)for(const v of VALS)d.push({s,v,id:v+s});return shuffle(d);}
+function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+function genCode(){const c="ABCDEFGHJKLMNPQRSTUVWXYZ";return Array.from({length:4},()=>c[Math.floor(Math.random()*c.length)]).join("");}
+function opp(id){return id==="p0"?"p1":"p0"}
 
-// ═══════════════════════════════════════════════════
-// POLLING
-// ═══════════════════════════════════════════════════
+let G={myId:null,myName:"",roomCode:null,room:null,drawn:null,drawnFromDisc:false,pollTimer:null,lastHash:"",lastDiscTop:null,queenMyIdx:null,queenOppIdx:null,jackCb:null,peekIdx:null,peekAfter:null};
+
 function startPoll(){
-  if(G.pollTimer) clearInterval(G.pollTimer);
-  G.pollTimer = setInterval(async()=>{
-    const r = await loadRoom();
-    if(!r) return;
-    const h = JSON.stringify(r);
-    if(h===G.lastHash) return;
-    G.lastHash=h; G.room=r;
-    onUpdate(r);
-  }, 1800);
+  if(G.pollTimer)clearInterval(G.pollTimer);
+  G.pollTimer=setInterval(async()=>{
+    const r=await loadRoom();if(!r)return;
+    const h=JSON.stringify(r);if(h===G.lastHash)return;
+    G.lastHash=h;G.room=r;onUpdate(r);
+  },1500);
 }
-function stopPoll(){ if(G.pollTimer){clearInterval(G.pollTimer);G.pollTimer=null;} }
+function stopPoll(){if(G.pollTimer){clearInterval(G.pollTimer);G.pollTimer=null;}}
 
-// ═══════════════════════════════════════════════════
-// SCREENS & UI HELPERS
-// ═══════════════════════════════════════════════════
-function show(id){
-  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
-}
-function showOv(id){ document.getElementById(id).classList.add("show"); }
-function closeOv(id){ document.getElementById(id).classList.remove("show"); }
-function closeAllOv(){ document.querySelectorAll(".ov").forEach(o=>o.classList.remove("show")); }
-
+function show(id){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active");}
+function showOv(id){document.getElementById(id).classList.add("show");}
+function closeOv(id){document.getElementById(id).classList.remove("show");}
+function closeAllOv(){document.querySelectorAll(".ov").forEach(o=>o.classList.remove("show"));}
 let toastT=null;
-function toast(msg,dur=2800){
-  const el=document.getElementById("toast");
-  el.textContent=msg; el.classList.add("show");
-  if(toastT) clearTimeout(toastT);
-  toastT=setTimeout(()=>el.classList.remove("show"),dur);
-}
-function errLobby(msg){ document.getElementById("lobbyErr").textContent=msg; }
+function toast(msg,dur=2800){const el=document.getElementById("toast");el.textContent=msg;el.classList.add("show");if(toastT)clearTimeout(toastT);toastT=setTimeout(()=>el.classList.remove("show"),dur);}
+function errLobby(msg){document.getElementById("lobbyErr").textContent=msg;}
+function switchTab(t){document.getElementById("panelCreate").style.display=t==="create"?"block":"none";document.getElementById("panelJoin").style.display=t==="join"?"block":"none";document.getElementById("tabCreate").className="tab"+(t==="create"?" on":"");document.getElementById("tabJoin").className="tab"+(t==="join"?" on":"");document.getElementById("lobbyErr").textContent="";}
 
-function switchTab(t){
-  document.getElementById("panelCreate").style.display=t==="create"?"block":"none";
-  document.getElementById("panelJoin").style.display=t==="join"?"block":"none";
-  document.getElementById("tabCreate").className="tab"+(t==="create"?" on":"");
-  document.getElementById("tabJoin").className="tab"+(t==="join"?" on":"");
-  document.getElementById("lobbyErr").textContent="";
-}
-
-// ═══════════════════════════════════════════════════
-// CREATE GAME
-// ═══════════════════════════════════════════════════
 async function createGame(){
   const name=document.getElementById("nameC").value.trim();
-  if(!name){ errLobby("Entrez votre prénom"); return; }
+  if(!name){errLobby("Entrez votre prénom");return;}
   errLobby("Création en cours…");
-
   const code=genCode();
-  const room={
-    code, phase:"waiting",
-    players:{p0:{name},p1:null},
-    deck:makeDeck(), hands:{p0:[],p1:[]},
-    discard:[], currentTurn:"p0",
-    deutscheCaller:null, peeksLeft:{p0:2,p1:2},
-    createdAt:Date.now()
-  };
-
-  const binId=await createBin(room);
-  if(!binId){ errLobby("Erreur de connexion. Vérifiez votre internet."); return; }
-
-  // Save mapping code->binId in localStorage + a shared lookup bin
-  const idx=await getIndex();
-  idx[code]=binId;
-  await saveIndex(idx);
-
-  // Also create a small lookup bin just for this code
-  const lookupId=await createBin({code,binId});
-  if(lookupId){
-    const idx2=await getIndex();
-    idx2["lookup_"+code]=lookupId;
-    await saveIndex(idx2);
-  }
-
-  G.myId="p0"; G.myName=name; G.roomCode=code; G.binId=binId; G.room=room;
-  localStorage.setItem("deutsche_room_"+code, JSON.stringify({binId,myId:"p0",myName:name}));
-
+  const room={code,phase:"waiting",players:{p0:{name},p1:null},deck:makeDeck(),hands:{p0:[],p1:[]},discard:[],currentTurn:"p0",deutscheCaller:null,peeksLeft:{p0:2,p1:2},createdAt:Date.now()};
+  G.myId="p0";G.myName=name;G.roomCode=code;
+  const ok=await fbSet(`rooms/${code}`,room);
+  if(!ok){errLobby("Erreur de connexion. Vérifiez votre internet et que le DB_URL est configuré.");G.roomCode=null;return;}
+  G.room=room;
   document.getElementById("dispCode").textContent=code;
-  updateWaiting(room);
-  show("sWait");
-  errLobby("");
-  startPoll();
+  updateWaiting(room);show("sWait");errLobby("");startPoll();
 }
 
-// ═══════════════════════════════════════════════════
-// JOIN GAME
-// ═══════════════════════════════════════════════════
 async function joinGame(){
   const name=document.getElementById("nameJ").value.trim();
   const code=document.getElementById("codeJ").value.trim().toUpperCase();
-  if(!name){ errLobby("Entrez votre prénom"); return; }
-  if(code.length!==4){ errLobby("Code à 4 lettres svp"); return; }
+  if(!name){errLobby("Entrez votre prénom");return;}
+  if(code.length!==4){errLobby("Code à 4 lettres svp");return;}
   errLobby("Connexion en cours…");
-
-  // Try to find binId
-  let binId=null;
-
-  // 1. Check localStorage (same device)
-  try{
-    const local=JSON.parse(localStorage.getItem("deutsche_room_"+code)||"null");
-    if(local?.binId) binId=local.binId;
-  }catch{}
-
-  // 2. Check local index
-  if(!binId){
-    const idx=await getIndex();
-    binId=idx[code]||null;
-  }
-
-  // 3. Try URL params
-  if(!binId){
-    const p=new URLSearchParams(window.location.search);
-    binId=p.get("bid")||null;
-  }
-
-  if(!binId){
-    errLobby("Code introuvable. Demandez à l'hôte de vous envoyer le lien.");
-    return;
-  }
-
-  const room=await readBin(binId);
-  if(!room){ errLobby("Partie introuvable ou expirée."); return; }
-  if(room.players.p1){ errLobby("Partie déjà pleine !"); return; }
-
+  G.roomCode=code;
+  const room=await loadRoom();
+  if(!room){errLobby("Code introuvable. Vérifiez le code.");G.roomCode=null;return;}
+  if(room.players.p1){errLobby("Partie déjà pleine !");G.roomCode=null;return;}
   room.players.p1={name};
-  await writeBin(binId,room);
-
-  G.myId="p1"; G.myName=name; G.roomCode=code; G.binId=binId; G.room=room;
-  localStorage.setItem("deutsche_room_"+code, JSON.stringify({binId,myId:"p1",myName:name}));
-
+  await fbSet(`rooms/${code}`,room);
+  G.myId="p1";G.myName=name;G.room=room;
   document.getElementById("dispCode").textContent=code;
-  updateWaiting(room);
-  show("sWait");
-  errLobby("");
-  startPoll();
+  updateWaiting(room);show("sWait");errLobby("");startPoll();
 }
 
-// ═══════════════════════════════════════════════════
-// COPY CODE / LINK
-// ═══════════════════════════════════════════════════
 function copyCode(){
-  const base=window.location.href.split("?")[0];
-  const link=`${base}?bid=${G.binId}&room=${G.roomCode}`;
-  const text=`Code: ${G.roomCode}\nOu ouvre ce lien: ${link}`;
-  navigator.clipboard.writeText(text).then(()=>{
-    toast("Code et lien copiés ! Envoyez les à votre amie 💌",3500);
-  }).catch(()=>{
-    prompt("Copiez et envoyez ceci à votre amie :", link);
-  });
+  navigator.clipboard.writeText(G.roomCode).then(()=>toast("Code copié ! Envoyez-le à votre amie 💌",3000))
+  .catch(()=>prompt("Votre code (à envoyer à votre amie) :",G.roomCode));
 }
 
-// ═══════════════════════════════════════════════════
-// WAITING ROOM
-// ═══════════════════════════════════════════════════
 function updateWaiting(room){
-  const list=document.getElementById("playersList");
-  list.innerHTML="";
+  const list=document.getElementById("playersList");list.innerHTML="";
   ["p0","p1"].forEach(pid=>{
     const p=room.players[pid];
-    const d=document.createElement("div");
-    d.className="pslot "+(p?"on":"off");
-    d.innerHTML=p
-      ?`<div class="dot"></div>${p.name}${pid===G.myId?" (Vous)":""}`
-      :`<span>En attente d'un joueur…</span>`;
+    const d=document.createElement("div");d.className="pslot "+(p?"on":"off");
+    d.innerHTML=p?`<div class="dot"></div>${p.name}${pid===G.myId?" (Vous)":""}`:`<span>En attente d'un joueur…</span>`;
     list.appendChild(d);
   });
-  const area=document.getElementById("startArea");
-  area.innerHTML="";
+  const area=document.getElementById("startArea");area.innerHTML="";
   if(G.myId==="p0"&&room.players.p1){
-    const b=document.createElement("button");
-    b.className="btn btn-gold"; b.style.marginBottom=".5rem";
-    b.textContent="Commencer la partie ▶";
-    b.onclick=startGame; area.appendChild(b);
+    const b=document.createElement("button");b.className="btn btn-gold";b.style.marginBottom=".5rem";b.textContent="Commencer la partie ▶";b.onclick=startGame;area.appendChild(b);
   }else if(G.myId==="p1"&&room.players.p1){
     area.innerHTML=`<p style="color:var(--green);font-style:italic;font-size:.88rem;text-align:center;margin-bottom:.5rem">✓ Connecté — en attente de l'hôte</p>`;
   }
 }
 
 async function startGame(){
-  const r=await loadRoom(); if(!r||!r.players.p1) return;
-  const deck=[...r.deck];
-  r.hands.p0=deck.splice(0,4); r.hands.p1=deck.splice(0,4); r.deck=deck;
-  r.phase="memorize"; r.peeksLeft={p0:2,p1:2};
-  await saveRoom(r);
+  const r=await loadRoom();if(!r||!r.players.p1)return;
+  const deck=[...r.deck];r.hands.p0=deck.splice(0,4);r.hands.p1=deck.splice(0,4);r.deck=deck;
+  r.phase="memorize";r.peeksLeft={p0:2,p1:2};await saveRoom(r);
 }
 
-// ═══════════════════════════════════════════════════
-// ON UPDATE
-// ═══════════════════════════════════════════════════
 function onUpdate(room){
   const scr=document.querySelector(".screen.active")?.id;
-  if(room.phase==="waiting"){
-    if(scr!=="sWait") show("sWait");
-    updateWaiting(room); return;
-  }
-  if(["memorize","playing","last_round"].includes(room.phase)){
-    if(scr!=="sGame") show("sGame");
-    renderBoard(room);
-    checkReactive(room); return;
-  }
-  if(room.phase==="ended"){ stopPoll(); showEnd(room); }
+  if(room.phase==="waiting"){if(scr!=="sWait")show("sWait");updateWaiting(room);return;}
+  if(["memorize","playing","last_round"].includes(room.phase)){if(scr!=="sGame")show("sGame");renderBoard(room);checkReactive(room);return;}
+  if(room.phase==="ended"){stopPoll();showEnd(room);}
 }
 
-// ═══════════════════════════════════════════════════
-// RENDER BOARD
-// ═══════════════════════════════════════════════════
 function renderBoard(room){
-  const me=G.myId, op=opp(me);
-  const myHand=room.hands[me]||[], oppHand=room.hands[op]||[];
-  const isMy=room.currentTurn===me, phase=room.phase;
-  const myN=room.players[me]?.name||"Vous", opN=room.players[op]?.name||"Adversaire";
-
-  document.getElementById("myTag").textContent=myN;
-  document.getElementById("oppTag").textContent=opN;
+  const me=G.myId,op=opp(me),myHand=room.hands[me]||[],oppHand=room.hands[op]||[];
+  const isMy=room.currentTurn===me,phase=room.phase;
+  const myN=room.players[me]?.name||"Vous",opN=room.players[op]?.name||"Adversaire";
+  document.getElementById("myTag").textContent=myN;document.getElementById("oppTag").textContent=opN;
   document.getElementById("myTag").className="name-tag"+(isMy?" active mine":"");
   document.getElementById("oppTag").className="name-tag"+(!isMy?" active":"");
-
-  const tt=document.getElementById("turnTag"), sm=document.getElementById("statusMsg");
-  if(phase==="memorize"){
-    tt.className="turn-tag mine"; tt.textContent="👁 Mémorisation";
-    sm.textContent=`Mémorisez ${room.peeksLeft[me]} carte${room.peeksLeft[me]>1?"s":""}`;
-  } else {
-    tt.className="turn-tag "+(isMy?"mine":"theirs");
-    tt.textContent=isMy?"▶ Votre tour":`⏳ Tour de ${opN}`;
-    sm.textContent=phase==="last_round"
-      ?`⚠ Dernier tour — ${room.players[room.deutscheCaller]?.name} a dit Deutsche !`
-      :isMy?"Piochez une carte":`${opN} joue…`;
-  }
-
+  const tt=document.getElementById("turnTag"),sm=document.getElementById("statusMsg");
+  if(phase==="memorize"){tt.className="turn-tag mine";tt.textContent="👁 Mémorisation";sm.textContent=`Mémorisez ${room.peeksLeft[me]} carte${room.peeksLeft[me]>1?"s":""}`;}
+  else{tt.className="turn-tag "+(isMy?"mine":"theirs");tt.textContent=isMy?"▶ Votre tour":`⏳ Tour de ${opN}`;sm.textContent=phase==="last_round"?`⚠ Dernier tour !`:isMy?"Piochez une carte":`${opN} joue…`;}
   document.getElementById("deckCount").textContent=`🂠 ${room.deck.length}`;
-
-  // Deck pile
-  const dp=document.getElementById("deckPile");
-  dp.innerHTML=`<span class="pile-count">${room.deck.length}</span>`;
-  if(room.deck.length>0){
-    dp.insertBefore(mkCard(null,true),dp.firstChild);
-    dp.className="pile-slot"+(isMy&&!G.drawn&&phase!=="memorize"?" click":"");
-  } else {
-    dp.insertAdjacentHTML("afterbegin","<div class='pile-empty'>Vide</div>");
-    dp.className="pile-slot";
-  }
-
-  // Discard pile
-  const dsp=document.getElementById("discardPile");
-  dsp.innerHTML="";
+  const dp=document.getElementById("deckPile");dp.innerHTML=`<span class="pile-count">${room.deck.length}</span>`;
+  if(room.deck.length>0){dp.insertBefore(mkCard(null,true),dp.firstChild);dp.className="pile-slot"+(isMy&&!G.drawn&&phase!=="memorize"?" click":"");}
+  else{dp.insertAdjacentHTML("afterbegin","<div class='pile-empty'>Vide</div>");dp.className="pile-slot";}
+  const dsp=document.getElementById("discardPile");dsp.innerHTML="";
   const top=room.discard.length>0?room.discard[room.discard.length-1]:null;
-  if(top){
-    dsp.appendChild(mkCard(top,false));
-    dsp.className="pile-slot"+(isMy&&!G.drawn&&phase!=="memorize"?" click":"");
-  } else {
-    dsp.innerHTML="<div class='pile-empty'>Vide</div>";
-    dsp.className="pile-slot";
-  }
-
-  // Opponent cards
-  const oc=document.getElementById("oppCards"); oc.innerHTML="";
-  oppHand.forEach(()=>oc.appendChild(mkCard(null,true)));
-
-  // My cards
-  const mc=document.getElementById("myCards"); mc.innerHTML="";
+  if(top){dsp.appendChild(mkCard(top,false));dsp.className="pile-slot"+(isMy&&!G.drawn&&phase!=="memorize"?" click":"");}
+  else{dsp.innerHTML="<div class='pile-empty'>Vide</div>";dsp.className="pile-slot";}
+  const oc=document.getElementById("oppCards");oc.innerHTML="";oppHand.forEach(()=>oc.appendChild(mkCard(null,true)));
+  const mc=document.getElementById("myCards");mc.innerHTML="";
   myHand.forEach((c,i)=>{
-    const el=mkCard(c,true);
-    const lbl=document.createElement("span");
-    lbl.className="clabel"; lbl.textContent=i+1; el.appendChild(lbl);
-    if(phase==="memorize"&&room.peeksLeft[me]>0){
-      el.classList.add("click"); el.onclick=()=>doPeek(i,room);
-    }
+    const el=mkCard(c,true);const lbl=document.createElement("span");lbl.className="clabel";lbl.textContent=i+1;el.appendChild(lbl);
+    if(phase==="memorize"&&room.peeksLeft[me]>0){el.classList.add("click");el.onclick=()=>doPeek(i,room);}
     mc.appendChild(el);
   });
-
-  // Action bar
-  const ab=document.getElementById("actionBar"); ab.innerHTML="";
+  const ab=document.getElementById("actionBar");ab.innerHTML="";
   if((phase==="playing"||phase==="last_round")&&isMy&&!G.drawn){
-    const db=document.createElement("button");
-    db.className="dbtn"; db.textContent="DEUTSCHE !"; db.onclick=callDeutsche;
-    ab.appendChild(db);
+    const db=document.createElement("button");db.className="dbtn";db.textContent="DEUTSCHE !";db.onclick=callDeutsche;ab.appendChild(db);
   }
 }
 
-// ═══════════════════════════════════════════════════
-// CARD ELEMENT
-// ═══════════════════════════════════════════════════
-function mkCard(c,faceDown,mini=false,cls=""){
-  const d=document.createElement("div");
-  d.className="card"+(mini?" mini":"")+(cls?" "+cls:"");
-  if(faceDown||!c){
-    d.innerHTML=`<div class="card-back">🂠</div>`;
-  } else {
-    const r=isRed(c);
-    d.innerHTML=`<div class="card-face ${r?"r":"b"}">
-      <div class="cn top"><span class="cv">${c.v}</span><span class="cs">${c.s}</span></div>
-      <div class="cc">${c.s}</div>
-      <div class="cn bot"><span class="cv">${c.v}</span><span class="cs">${c.s}</span></div>
-    </div>`;
-  }
+function mkCard(c,faceDown,mini=false){
+  const d=document.createElement("div");d.className="card"+(mini?" mini":"");
+  if(faceDown||!c){d.innerHTML=`<div class="card-back">🂠</div>`;}
+  else{const r=isRed(c);d.innerHTML=`<div class="card-face ${r?"r":"b"}"><div class="cn top"><span class="cv">${c.v}</span><span class="cs">${c.s}</span></div><div class="cc">${c.s}</div><div class="cn bot"><span class="cv">${c.v}</span><span class="cs">${c.s}</span></div></div>`;}
   return d;
 }
 
-// ═══════════════════════════════════════════════════
-// PEEK (memorize phase)
-// ═══════════════════════════════════════════════════
 function doPeek(idx,room){
-  const card=room.hands[G.myId][idx];
-  const after=room.peeksLeft[G.myId]-1;
+  const card=room.hands[G.myId][idx],after=room.peeksLeft[G.myId]-1;
   document.getElementById("peekTitle").textContent=`Carte ${idx+1}`;
-  document.getElementById("peekDesc").textContent=after>0
-    ?`Il vous reste ${after} regard${after>1?"s":""}. Mémorisez !`
-    :"Dernière carte — mémorisez bien !";
-  const pc=document.getElementById("peekCard"); pc.innerHTML="";
-  pc.appendChild(mkCard(card,false));
-  G.peekIdx=idx; G.peekAfter=after;
-  showOv("ovPeek");
+  document.getElementById("peekDesc").textContent=after>0?`Il vous reste ${after} regard${after>1?"s":""}. Mémorisez !`:"Dernière carte — mémorisez bien !";
+  const pc=document.getElementById("peekCard");pc.innerHTML="";pc.appendChild(mkCard(card,false));
+  G.peekIdx=idx;G.peekAfter=after;showOv("ovPeek");
 }
 
 async function closePeek(){
-  closeOv("ovPeek");
-  const r=await loadRoom(); if(!r) return;
+  closeOv("ovPeek");const r=await loadRoom();if(!r)return;
   r.peeksLeft[G.myId]=G.peekAfter;
-  if(r.peeksLeft.p0<=0&&r.peeksLeft.p1<=0) r.phase="playing";
+  if(r.peeksLeft.p0<=0&&r.peeksLeft.p1<=0)r.phase="playing";
   await saveRoom(r);
 }
 
-// ═══════════════════════════════════════════════════
-// DRAW
-// ═══════════════════════════════════════════════════
 async function drawDeck(){
-  if(G.drawn) return;
-  const r=await loadRoom(); if(!r) return;
-  if(r.currentTurn!==G.myId){ toast("Ce n'est pas votre tour"); return; }
-  if(r.phase!=="playing"&&r.phase!=="last_round") return;
-  if(r.deck.length===0){
-    if(r.discard.length<=1){ toast("Plus de cartes !"); return; }
-    const top=r.discard.pop(); r.deck=shuffle(r.discard); r.discard=[top];
-    toast("Pioche reconstituée !");
-  }
-  const card=r.deck.shift(); await saveRoom(r);
-  G.drawn=card; G.drawnFromDisc=false;
-  showDrawnOv(r,card);
+  if(G.drawn)return;const r=await loadRoom();if(!r)return;
+  if(r.currentTurn!==G.myId){toast("Ce n'est pas votre tour");return;}
+  if(r.phase!=="playing"&&r.phase!=="last_round")return;
+  if(r.deck.length===0){if(r.discard.length<=1){toast("Plus de cartes !");return;}const top=r.discard.pop();r.deck=shuffle(r.discard);r.discard=[top];toast("Pioche reconstituée !");}
+  const card=r.deck.shift();await saveRoom(r);G.drawn=card;G.drawnFromDisc=false;showDrawnOv(r,card);
 }
 
 async function drawDiscard(){
-  if(G.drawn) return;
-  const r=await loadRoom(); if(!r) return;
-  if(r.currentTurn!==G.myId){ toast("Ce n'est pas votre tour"); return; }
-  if(r.phase!=="playing"&&r.phase!=="last_round") return;
-  if(r.discard.length===0){ toast("Défausse vide"); return; }
-  const card=r.discard[r.discard.length-1];
-  G.drawn=card; G.drawnFromDisc=true;
-  showDrawnOv(r,card);
+  if(G.drawn)return;const r=await loadRoom();if(!r)return;
+  if(r.currentTurn!==G.myId){toast("Ce n'est pas votre tour");return;}
+  if(r.phase!=="playing"&&r.phase!=="last_round")return;
+  if(r.discard.length===0){toast("Défausse vide");return;}
+  const card=r.discard[r.discard.length-1];G.drawn=card;G.drawnFromDisc=true;showDrawnOv(r,card);
 }
 
 function showDrawnOv(r,card){
   document.getElementById("drawnTitle").textContent=G.drawnFromDisc?"Carte de la défausse":"Carte piochée";
-  const dc=document.getElementById("drawnCard"); dc.innerHTML=""; dc.appendChild(mkCard(card,false));
-  const myHand=r.hands[G.myId];
-  const canDouble=myHand.some(c=>c.v===card.v);
-  const da=document.getElementById("drawnActions"); da.innerHTML="";
-
-  if(!G.drawnFromDisc){
-    const b=document.createElement("button"); b.className="abtn"; b.textContent="Défausser cette carte";
-    b.onclick=()=>doDiscardDrawn(card); da.appendChild(b);
-  }
-  const b2=document.createElement("button"); b2.className="abtn"; b2.textContent="Échanger avec ma main";
-  b2.onclick=()=>{ closeOv("ovDrawn"); showSwapOv(r,card); }; da.appendChild(b2);
-  if(canDouble){
-    const b3=document.createElement("button"); b3.className="abtn ok"; b3.textContent="Double défausse (même valeur)";
-    b3.onclick=()=>{ closeOv("ovDrawn"); showDoubleOv(r,card); }; da.appendChild(b3);
-  }
-  if(G.drawnFromDisc){
-    const bc=document.createElement("button"); bc.className="abtn danger"; bc.textContent="Annuler";
-    bc.onclick=()=>{ G.drawn=null; closeOv("ovDrawn"); }; da.appendChild(bc);
-  }
+  const dc=document.getElementById("drawnCard");dc.innerHTML="";dc.appendChild(mkCard(card,false));
+  const canDouble=r.hands[G.myId].some(c=>c.v===card.v);
+  const da=document.getElementById("drawnActions");da.innerHTML="";
+  if(!G.drawnFromDisc){const b=document.createElement("button");b.className="abtn";b.textContent="Défausser cette carte";b.onclick=()=>doDiscardDrawn(card);da.appendChild(b);}
+  const b2=document.createElement("button");b2.className="abtn";b2.textContent="Échanger avec ma main";b2.onclick=()=>{closeOv("ovDrawn");showSwapOv(r,card);};da.appendChild(b2);
+  if(canDouble){const b3=document.createElement("button");b3.className="abtn ok";b3.textContent="Double défausse (même valeur)";b3.onclick=()=>{closeOv("ovDrawn");showDoubleOv(r,card);};da.appendChild(b3);}
+  if(G.drawnFromDisc){const bc=document.createElement("button");bc.className="abtn danger";bc.textContent="Annuler";bc.onclick=()=>{G.drawn=null;closeOv("ovDrawn");};da.appendChild(bc);}
   showOv("ovDrawn");
 }
 
-async function doDiscardDrawn(card){
-  closeOv("ovDrawn");
-  const r=await loadRoom(); if(!r) return;
-  r.discard.push(card); G.drawn=null;
-  await handleSpecial(r,card);
-}
+async function doDiscardDrawn(card){closeOv("ovDrawn");const r=await loadRoom();if(!r)return;r.discard.push(card);G.drawn=null;await handleSpecial(r,card);}
 
 function showSwapOv(r,card){
-  const sc=document.getElementById("swapCards"); sc.innerHTML="";
-  r.hands[G.myId].forEach((c,i)=>{
-    const el=mkCard(c,true); el.classList.add("click");
-    const lbl=document.createElement("span"); lbl.className="clabel"; lbl.textContent=i+1; el.appendChild(lbl);
-    el.onclick=()=>doSwap(i,card,r); sc.appendChild(el);
-  });
+  const sc=document.getElementById("swapCards");sc.innerHTML="";
+  r.hands[G.myId].forEach((c,i)=>{const el=mkCard(c,true);el.classList.add("click");const lbl=document.createElement("span");lbl.className="clabel";lbl.textContent=i+1;el.appendChild(lbl);el.onclick=()=>doSwap(i,card,r);sc.appendChild(el);});
   showOv("ovSwap");
 }
 
 async function doSwap(idx,drawnCard,r){
-  closeOv("ovSwap");
-  const rr=await loadRoom(); if(!rr) return;
-  if(G.drawnFromDisc) rr.discard.pop();
-  const old=rr.hands[G.myId][idx];
-  rr.discard.push(old); rr.hands[G.myId][idx]=drawnCard; G.drawn=null;
-  await handleSpecial(rr,old);
+  closeOv("ovSwap");const rr=await loadRoom();if(!rr)return;
+  if(G.drawnFromDisc)rr.discard.pop();const old=rr.hands[G.myId][idx];rr.discard.push(old);rr.hands[G.myId][idx]=drawnCard;G.drawn=null;await handleSpecial(rr,old);
 }
 
 function showDoubleOv(r,card){
-  const dc=document.getElementById("doubleCards"); dc.innerHTML="";
-  r.hands[G.myId].forEach((c,i)=>{
-    const el=mkCard(c,true);
-    const lbl=document.createElement("span"); lbl.className="clabel"; lbl.textContent=i+1; el.appendChild(lbl);
-    if(c.v===card.v){ el.classList.add("click","hi"); el.onclick=()=>doDouble(i,card,r); }
-    else el.classList.add("dim");
-    dc.appendChild(el);
-  });
+  const dc=document.getElementById("doubleCards");dc.innerHTML="";
+  r.hands[G.myId].forEach((c,i)=>{const el=mkCard(c,true);const lbl=document.createElement("span");lbl.className="clabel";lbl.textContent=i+1;el.appendChild(lbl);if(c.v===card.v){el.classList.add("click","hi");el.onclick=()=>doDouble(i,card,r);}else el.classList.add("dim");dc.appendChild(el);});
   showOv("ovDouble");
 }
 
 async function doDouble(idx,drawnCard,r){
-  closeOv("ovDouble");
-  const rr=await loadRoom(); if(!rr) return;
-  if(G.drawnFromDisc) rr.discard.pop();
-  rr.discard.push(drawnCard); rr.discard.push(rr.hands[G.myId][idx]);
-  rr.hands[G.myId].splice(idx,1); G.drawn=null;
-  await endTurn(rr);
+  closeOv("ovDouble");const rr=await loadRoom();if(!rr)return;
+  if(G.drawnFromDisc)rr.discard.pop();rr.discard.push(drawnCard);rr.discard.push(rr.hands[G.myId][idx]);rr.hands[G.myId].splice(idx,1);G.drawn=null;await endTurn(rr);
 }
 
-// ═══════════════════════════════════════════════════
-// SPECIAL CARDS
-// ═══════════════════════════════════════════════════
 async function handleSpecial(r,card){
-  if(card.v==="J"){ await saveRoom(r); showJackOv(r); }
-  else if(card.v==="Q"){ await saveRoom(r); showQueenOv(r); }
+  if(card.v==="J"){await saveRoom(r);showJackOv(r);}
+  else if(card.v==="Q"){await saveRoom(r);showQueenOv(r);}
   else await endTurn(r);
 }
 
 function showJackOv(r){
-  const jc=document.getElementById("jackCards"); jc.innerHTML="";
-  r.hands[G.myId].forEach((c,i)=>{
-    const el=mkCard(c,true); el.classList.add("click");
-    const lbl=document.createElement("span"); lbl.className="clabel"; lbl.textContent=i+1; el.appendChild(lbl);
-    el.onclick=()=>{
-      closeOv("ovJack");
-      const rc=document.getElementById("jackRevealCard"); rc.innerHTML=""; rc.appendChild(mkCard(c,false));
-      showOv("ovJackReveal");
-      G.jackCb=async()=>{ const rr=await loadRoom(); if(rr) await endTurn(rr); };
-    };
-    jc.appendChild(el);
-  });
+  const jc=document.getElementById("jackCards");jc.innerHTML="";
+  r.hands[G.myId].forEach((c,i)=>{const el=mkCard(c,true);el.classList.add("click");const lbl=document.createElement("span");lbl.className="clabel";lbl.textContent=i+1;el.appendChild(lbl);el.onclick=()=>{closeOv("ovJack");const rc=document.getElementById("jackRevealCard");rc.innerHTML="";rc.appendChild(mkCard(c,false));showOv("ovJackReveal");G.jackCb=async()=>{const rr=await loadRoom();if(rr)await endTurn(rr);};};jc.appendChild(el);});
   showOv("ovJack");
 }
 
-async function closeJackReveal(){ closeOv("ovJackReveal"); if(G.jackCb){await G.jackCb();G.jackCb=null;} }
+async function closeJackReveal(){closeOv("ovJackReveal");if(G.jackCb){await G.jackCb();G.jackCb=null;}}
 
 function showQueenOv(r){
-  G.queenMyIdx=null; G.queenOppIdx=null;
-  const op=opp(G.myId);
+  G.queenMyIdx=null;G.queenOppIdx=null;const op=opp(G.myId);
   document.getElementById("queenOppLbl").textContent=r.players[op]?.name||"Adversaire";
   document.getElementById("queenHint").textContent="Choisissez une carte de chaque côté.";
-
-  const qm=document.getElementById("queenMy"); qm.innerHTML="";
-  r.hands[G.myId].forEach((c,i)=>{
-    const el=mkCard(c,true); el.classList.add("click");
-    const lbl=document.createElement("span"); lbl.className="clabel"; lbl.textContent=i+1; el.appendChild(lbl);
-    el.onclick=()=>{ qm.querySelectorAll(".card").forEach(e=>e.classList.remove("sel")); el.classList.add("sel"); G.queenMyIdx=i; checkQueen(r); };
-    qm.appendChild(el);
-  });
-
-  const qo=document.getElementById("queenOpp"); qo.innerHTML="";
-  r.hands[op].forEach((c,i)=>{
-    const el=mkCard(c,true); el.classList.add("click");
-    const lbl=document.createElement("span"); lbl.className="clabel"; lbl.textContent=i+1; el.appendChild(lbl);
-    el.onclick=()=>{ qo.querySelectorAll(".card").forEach(e=>e.classList.remove("sel")); el.classList.add("sel"); G.queenOppIdx=i; checkQueen(r); };
-    qo.appendChild(el);
-  });
+  const qm=document.getElementById("queenMy");qm.innerHTML="";
+  r.hands[G.myId].forEach((c,i)=>{const el=mkCard(c,true);el.classList.add("click");const lbl=document.createElement("span");lbl.className="clabel";lbl.textContent=i+1;el.appendChild(lbl);el.onclick=()=>{qm.querySelectorAll(".card").forEach(e=>e.classList.remove("sel"));el.classList.add("sel");G.queenMyIdx=i;checkQueen(r);};qm.appendChild(el);});
+  const qo=document.getElementById("queenOpp");qo.innerHTML="";
+  r.hands[op].forEach((c,i)=>{const el=mkCard(c,true);el.classList.add("click");const lbl=document.createElement("span");lbl.className="clabel";lbl.textContent=i+1;el.appendChild(lbl);el.onclick=()=>{qo.querySelectorAll(".card").forEach(e=>e.classList.remove("sel"));el.classList.add("sel");G.queenOppIdx=i;checkQueen(r);};qo.appendChild(el);});
   showOv("ovQueen");
 }
 
@@ -893,157 +529,80 @@ async function checkQueen(r){
   const hint=document.getElementById("queenHint");
   if(G.queenMyIdx===null){hint.textContent="👈 Choisissez votre carte";return;}
   if(G.queenOppIdx===null){hint.textContent="👉 Choisissez la carte adverse";return;}
-  closeOv("ovQueen");
-  const rr=await loadRoom(); if(!rr) return;
-  const op=opp(G.myId);
-  const tmp=rr.hands[G.myId][G.queenMyIdx];
-  rr.hands[G.myId][G.queenMyIdx]=rr.hands[op][G.queenOppIdx];
-  rr.hands[op][G.queenOppIdx]=tmp;
-  toast("Échange secret effectué !");
-  await endTurn(rr);
+  closeOv("ovQueen");const rr=await loadRoom();if(!rr)return;
+  const op=opp(G.myId);const tmp=rr.hands[G.myId][G.queenMyIdx];rr.hands[G.myId][G.queenMyIdx]=rr.hands[op][G.queenOppIdx];rr.hands[op][G.queenOppIdx]=tmp;
+  toast("Échange secret effectué !");await endTurn(rr);
 }
 
-// ═══════════════════════════════════════════════════
-// REACTIVE DISCARD
-// ═══════════════════════════════════════════════════
 function checkReactive(room){
-  if(room.currentTurn===G.myId) return;
-  if(room.discard.length===0) return;
-  const top=room.discard[room.discard.length-1];
-  if(top.id===G.lastDiscTop) return;
-  G.lastDiscTop=top.id;
-  const myHand=room.hands[G.myId];
+  if(room.currentTurn===G.myId)return;if(room.discard.length===0)return;
+  const top=room.discard[room.discard.length-1];if(top.id===G.lastDiscTop)return;
+  G.lastDiscTop=top.id;const myHand=room.hands[G.myId];
   const matches=myHand.reduce((a,c,i)=>{if(c.v===top.v)a.push(i);return a;},[]);
-  if(matches.length===0) return;
-  if(document.querySelector(".ov.show")) return;
-
+  if(matches.length===0)return;if(document.querySelector(".ov.show"))return;
   document.getElementById("reactTitle").textContent=`Défausse réactive — ${top.v}${top.s}`;
   document.getElementById("reactDesc").textContent=`Vous pouvez défausser un(e) ${top.v} maintenant !`;
-  const rc=document.getElementById("reactCards"); rc.innerHTML="";
-  myHand.forEach((c,i)=>{
-    const el=mkCard(c,true);
-    const lbl=document.createElement("span"); lbl.className="clabel"; lbl.textContent=i+1; el.appendChild(lbl);
-    if(matches.includes(i)){ el.classList.add("click","hi"); el.onclick=()=>doReactive(i,top); }
-    else el.classList.add("dim");
-    rc.appendChild(el);
-  });
+  const rc=document.getElementById("reactCards");rc.innerHTML="";
+  myHand.forEach((c,i)=>{const el=mkCard(c,true);const lbl=document.createElement("span");lbl.className="clabel";lbl.textContent=i+1;el.appendChild(lbl);if(matches.includes(i)){el.classList.add("click","hi");el.onclick=()=>doReactive(i,top);}else el.classList.add("dim");rc.appendChild(el);});
   showOv("ovReactive");
 }
 
 async function doReactive(idx,topCard){
-  closeOv("ovReactive");
-  const r=await loadRoom(); if(!r) return;
+  closeOv("ovReactive");const r=await loadRoom();if(!r)return;
   const myCard=r.hands[G.myId][idx];
-  if(myCard.v!==topCard.v){
-    if(r.deck.length>0){ const pen=r.deck.shift(); r.hands[G.myId].push(pen); await saveRoom(r); }
-    toast("❌ Mauvaise carte ! +1 carte de pénalité"); return;
-  }
-  r.hands[G.myId].splice(idx,1); r.discard.push(myCard);
-  await saveRoom(r); toast(`✓ Défaussé ${myCard.v}${myCard.s}`);
-  checkEnd(r);
+  if(myCard.v!==topCard.v){if(r.deck.length>0){const pen=r.deck.shift();r.hands[G.myId].push(pen);await saveRoom(r);}toast("❌ Mauvaise carte ! +1 pénalité");return;}
+  r.hands[G.myId].splice(idx,1);r.discard.push(myCard);await saveRoom(r);toast(`✓ Défaussé ${myCard.v}${myCard.s}`);checkEnd(r);
 }
 
-// ═══════════════════════════════════════════════════
-// DEUTSCHE
-// ═══════════════════════════════════════════════════
 async function callDeutsche(){
-  const r=await loadRoom(); if(!r) return;
-  if(r.currentTurn!==G.myId){ toast("Ce n'est pas votre tour !"); return; }
-  if(r.phase!=="playing") return;
-  if(!confirm("Appeler DEUTSCHE ? Ce sera le dernier tour pour l'adversaire !")) return;
-  r.phase="last_round"; r.deutscheCaller=G.myId;
-  toast("DEUTSCHE ! Dernier tour !",3000);
-  await endTurn(r);
+  const r=await loadRoom();if(!r)return;
+  if(r.currentTurn!==G.myId){toast("Ce n'est pas votre tour !");return;}
+  if(r.phase!=="playing")return;
+  if(!confirm("Appeler DEUTSCHE ? Ce sera le dernier tour pour l'adversaire !"))return;
+  r.phase="last_round";r.deutscheCaller=G.myId;toast("DEUTSCHE ! Dernier tour !",3000);await endTurn(r);
 }
 
-// ═══════════════════════════════════════════════════
-// END TURN
-// ═══════════════════════════════════════════════════
 async function endTurn(r){
-  G.drawn=null; closeAllOv();
-  if(checkEnd(r)) return;
+  G.drawn=null;closeAllOv();if(checkEnd(r))return;
   const op=opp(G.myId);
-  if(r.phase==="last_round"){
-    if(r.currentTurn===r.deutscheCaller) r.currentTurn=op;
-    else { r.phase="ended"; await saveRoom(r); showEnd(r); return; }
-  } else {
-    r.currentTurn=r.currentTurn==="p0"?"p1":"p0";
-  }
+  if(r.phase==="last_round"){if(r.currentTurn===r.deutscheCaller)r.currentTurn=op;else{r.phase="ended";await saveRoom(r);showEnd(r);return;}}
+  else r.currentTurn=r.currentTurn==="p0"?"p1":"p0";
   await saveRoom(r);
 }
 
 function checkEnd(r){
-  if((r.hands.p0||[]).length===0||(r.hands.p1||[]).length===0){
-    r.phase="ended"; saveRoom(r); stopPoll(); showEnd(r); return true;
-  }
-  return false;
+  if((r.hands.p0||[]).length===0||(r.hands.p1||[]).length===0){r.phase="ended";saveRoom(r);stopPoll();showEnd(r);return true;}return false;
 }
 
-// ═══════════════════════════════════════════════════
-// END SCREEN
-// ═══════════════════════════════════════════════════
 function showEnd(room){
-  stopPoll(); show("sEnd");
-  const me=G.myId, op=opp(me);
-  const mh=room.hands[me]||[], oh=room.hands[op]||[];
-  const mp=mh.reduce((s,c)=>s+pts(c),0), op2=oh.reduce((s,c)=>s+pts(c),0);
-  const myN=room.players[me]?.name||"Vous", opN=room.players[op]?.name||"Adversaire";
-  const myW=mp<op2||(mp===op2&&room.deutscheCaller===op);
-  const opW=op2<mp||(mp===op2&&room.deutscheCaller===me);
-  function handHtml(hand){
-    return hand.map(c=>{const r=isRed(c);return`<div class="card mini"><div class="card-face ${r?"r":"b"}"><div class="cn top"><span class="cv">${c.v}</span><span class="cs">${c.s}</span></div><div class="cc">${c.s}</div><div class="cn bot"><span class="cv">${c.v}</span></div></div></div>`;}).join("");
-  }
+  stopPoll();show("sEnd");
+  const me=G.myId,op=opp(me),mh=room.hands[me]||[],oh=room.hands[op]||[];
+  const mp=mh.reduce((s,c)=>s+pts(c),0),op2=oh.reduce((s,c)=>s+pts(c),0);
+  const myN=room.players[me]?.name||"Vous",opN=room.players[op]?.name||"Adversaire";
+  const myW=mp<op2||(mp===op2&&room.deutscheCaller===op),opW=op2<mp||(mp===op2&&room.deutscheCaller===me);
+  function hh(hand){return hand.map(c=>{const r=isRed(c);return`<div class="card mini"><div class="card-face ${r?"r":"b"}"><div class="cn top"><span class="cv">${c.v}</span><span class="cs">${c.s}</span></div><div class="cc">${c.s}</div><div class="cn bot"><span class="cv">${c.v}</span></div></div></div>`;}).join("");}
   document.getElementById("endContent").innerHTML=`
     <div class="score-row"><span>${myN}${myW?' <span class="wtag">🏆 GAGNANT</span>':''}</span><span class="pts">${mp} pts</span></div>
-    <div class="hand-rev">${handHtml(mh)}</div>
+    <div class="hand-rev">${hh(mh)}</div>
     <div class="score-row" style="margin-top:.5rem"><span>${opN}${opW?' <span class="wtag">🏆 GAGNANT</span>':''}</span><span class="pts">${op2} pts</span></div>
-    <div class="hand-rev">${handHtml(oh)}</div>
+    <div class="hand-rev">${hh(oh)}</div>
     ${mp===op2&&!myW&&!opW?'<p style="color:var(--gold);text-align:center;margin-top:.8rem">Égalité !</p>':""}
-    ${room.deutscheCaller?`<p style="color:var(--muted);font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem">${room.players[room.deutscheCaller]?.name} avait appelé Deutsche</p>`:""}
-  `;
+    ${room.deutscheCaller?`<p style="color:var(--muted);font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem">${room.players[room.deutscheCaller]?.name} avait appelé Deutsche</p>`:""}`;
 }
 
-// ═══════════════════════════════════════════════════
-// RESTART & LEAVE
-// ═══════════════════════════════════════════════════
 async function restartGame(){
-  if(G.myId!=="p0"){ show("sWait"); startPoll(); return; }
-  const r=await loadRoom(); if(!r) return;
-  const newRoom={code:r.code,phase:"waiting",players:r.players,deck:makeDeck(),
-    hands:{p0:[],p1:[]},discard:[],currentTurn:"p0",deutscheCaller:null,
-    peeksLeft:{p0:2,p1:2},createdAt:Date.now()};
-  await saveRoom(newRoom);
-  G.drawn=null; G.lastDiscTop=null;
-  show("sWait"); startPoll();
+  if(G.myId!=="p0"){show("sWait");startPoll();return;}
+  const r=await loadRoom();if(!r)return;
+  const nr={code:r.code,phase:"waiting",players:r.players,deck:makeDeck(),hands:{p0:[],p1:[]},discard:[],currentTurn:"p0",deutscheCaller:null,peeksLeft:{p0:2,p1:2},createdAt:Date.now()};
+  await saveRoom(nr);G.drawn=null;G.lastDiscTop=null;show("sWait");startPoll();
 }
 
 function leaveGame(){
   stopPoll();
-  G={myId:null,myName:"",roomCode:null,binId:null,room:null,drawn:null,
-    drawnFromDisc:false,pollTimer:null,lastHash:"",lastDiscTop:null,
-    queenMyIdx:null,queenOppIdx:null,jackCb:null,peekIdx:null,peekAfter:null};
-  closeAllOv();
-  document.getElementById("nameC").value="";
-  document.getElementById("nameJ").value="";
-  document.getElementById("codeJ").value="";
-  document.getElementById("lobbyErr").textContent="";
-  window.history.replaceState({},"",window.location.pathname);
+  G={myId:null,myName:"",roomCode:null,room:null,drawn:null,drawnFromDisc:false,pollTimer:null,lastHash:"",lastDiscTop:null,queenMyIdx:null,queenOppIdx:null,jackCb:null,peekIdx:null,peekAfter:null};
+  closeAllOv();document.getElementById("nameC").value="";document.getElementById("nameJ").value="";document.getElementById("codeJ").value="";document.getElementById("lobbyErr").textContent="";
   show("sLobby");
 }
-
-// ═══════════════════════════════════════════════════
-// AUTO-JOIN FROM URL
-// ═══════════════════════════════════════════════════
-window.addEventListener("DOMContentLoaded",()=>{
-  const p=new URLSearchParams(window.location.search);
-  const bid=p.get("bid"), room=p.get("room");
-  if(bid&&room){
-    switchTab("join");
-    document.getElementById("codeJ").value=room;
-    // Store bid for joinGame to find
-    try{ localStorage.setItem("deutsche_room_"+room, JSON.stringify({binId:bid})); }catch{}
-  }
-});
 </script>
 </body>
 </html>
